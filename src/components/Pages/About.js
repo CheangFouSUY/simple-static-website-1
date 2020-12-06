@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import Header from "../shared/Header";
 import Footer from "../shared/Footer";
+import img1 from "../../assets/img/portfolio/game.png"
 class About extends Component {
     render(){
         return(
             <div>
-                <Header />
+                <Header 
+                    title="We are what we are"
+                    subtitle="This is who we are, we are we are we are"
+                    image={img1}
+                />
                 <section className="page-section bg-primary text-white mb-0" id="about">
                     <div className="container">
                         <h2 className="page-section-heading text-center text-uppercase text-white">About</h2>

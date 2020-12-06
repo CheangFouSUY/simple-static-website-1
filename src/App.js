@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import PageWrapper from "./components/PageWrapper";
 import About from "./components/Pages/About";
 import Home from "./components/Pages/Home";

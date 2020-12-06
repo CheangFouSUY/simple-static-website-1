@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
+import InputField from "./InputField";
 import Header from "../shared/Header";
 import Footer from "../shared/Footer";
+import img1 from "../../assets/img/portfolio/submarine.png"
 
+const inputfields = [
+    {name:"name", label:"Name", type:"text", placeholder:"Enter Name: "},
+    {name:"email", label:"Email", type:"email", placeholder:"Enter Email Address: "},
+    {name:"phone", label:"Phone Number", type:"tel", placeholder:"Enter Phone Number: "},
+    {name:"message", label:"Message", type:"text", placeholder:"Message: "},
+]
 class Contact extends Component {
     render(){
         return(
             <div>
-                <Header />
+            <Header 
+                title="Contact Info"
+                subtitle="Please provide us your info below"
+                image={img1}
+            />
                 <section className="page-section" id="contact">
                     <div className="container">
                         
@@ -22,34 +34,9 @@ class Contact extends Component {
                             <div className="col-lg-8 mx-auto">
                                 
                                 <form id="contactForm" name="sentMessage" novalidate="novalidate">
-                                    <div className="control-group">
-                                        <div className="form-group floating-label-form-group controls mb-0 pb-2">
-                                            <label>Name</label>
-                                            <input className="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name." />
-                                            <p className="help-block text-danger"></p>
-                                        </div>
-                                    </div>
-                                    <div className="control-group">
-                                        <div className="form-group floating-label-form-group controls mb-0 pb-2">
-                                            <label>Email Address</label>
-                                            <input className="form-control" id="email" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address." />
-                                            <p className="help-block text-danger"></p>
-                                        </div>
-                                    </div>
-                                    <div className="control-group">
-                                        <div className="form-group floating-label-form-group controls mb-0 pb-2">
-                                            <label>Phone Number</label>
-                                            <input className="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number." />
-                                            <p className="help-block text-danger"></p>
-                                        </div>
-                                    </div>
-                                    <div className="control-group">
-                                        <div className="form-group floating-label-form-group controls mb-0 pb-2">
-                                            <label>Message</label>
-                                            <textarea className="form-control" id="message" rows="5" placeholder="Message" required="required" data-validation-required-message="Please enter a message."></textarea>
-                                            <p className="help-block text-danger"></p>
-                                        </div>
-                                    </div>
+                                    {inputfields.map((item, i) => {
+                                        return (<InputField key={i} {...item} />)
+                                    })}
                                     <br />
                                     <div id="success"></div>
                                     <div className="form-group"><button className="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Send</button></div>
